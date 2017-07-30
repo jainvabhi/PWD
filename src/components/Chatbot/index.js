@@ -1,22 +1,22 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-import VoicePlayer from './lib/VoicePlayer.js'
-import VoiceRecognition from './lib/VoiceRecognition.js'
-import BotCard from './BotCard'
-import LoadingSvg from '../Auth/LoadingSvg'
-import ChatBotSvg from './ChatBotSvg'
+import VoicePlayer from './lib/VoicePlayer.js';
+import VoiceRecognition from './lib/VoiceRecognition.js';
+import BotCard from './BotCard';
+import LoadingSvg from '../Auth/LoadingSvg';
+import ChatBotSvg from './ChatBotSvg';
 
 class VoicePlayerDemo extends Component {
   constructor(props) {
-    super(props)
-    this._ttsTextChange = this._ttsTextChange.bind(this)
-    this._ttsEnd = this._ttsEnd.bind(this)
-    this._ttsStart = this._ttsStart.bind(this)
+    super(props);
+    this._ttsTextChange = this._ttsTextChange.bind(this);
+    this._ttsEnd = this._ttsEnd.bind(this);
+    this._ttsStart = this._ttsStart.bind(this);
 
-    this._sttEnd = this._sttEnd.bind(this)
-    this._sttResult = this._sttResult.bind(this)
-    this._sttStart = this._sttStart.bind(this)
+    this._sttEnd = this._sttEnd.bind(this);
+    this._sttResult = this._sttResult.bind(this);
+    this._sttStart = this._sttStart.bind(this);
 
     this.state = {
       ttsPlay: false,
@@ -25,64 +25,64 @@ class VoicePlayerDemo extends Component {
         'Good Morning Doctor, you have a appointement in next 10 min with Sameena Sabungar!',
       sttStart: false,
       sttStop: false,
-    }
+    };
   }
 
   componentWillMount() {
-    console.log(this.props)
-    this.props.getPatient('Sameena Sabungar')
+    console.log(this.props);
+    this.props.getPatient('Sameena Sabungar');
   }
 
   _ttsTextChange = event => {
-    const ttsText = event
+    const ttsText = event;
     this.setState({ ttsText }, () => {
-      console.log('Text Chagne ==> ttsTextChange')
-    })
-  }
+      console.log('Text Chagne ==> ttsTextChange');
+    });
+  };
 
   _ttsEnd = () => {
     this.setState({ ttsPlay: false }, () => {
-      this._sttStart()
-      console.log('End ==> ttsEnd')
-    })
-  }
+      this._sttStart();
+      console.log('End ==> ttsEnd');
+    });
+  };
 
   _ttsStart(e) {
     this.setState({ ttsPlay: true, sttStart: false }, () => {
-      console.log('Start ==> ttsStarted')
-      console.log(e)
-    })
+      console.log('Start ==> ttsStarted');
+      console.log(e);
+    });
   }
 
   _sttEnd = () => {
     this.setState({ sttStart: false, sttStop: false }, () => {
-      console.log('End ==> sttEnd')
-    })
-  }
+      console.log('End ==> sttEnd');
+    });
+  };
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps)
+    console.log(nextProps);
   }
 
   _sttResult = ({ finalTranscript }) => {
-    const result = finalTranscript
+    const result = finalTranscript;
     this.setState({ sttStart: false }, () => {
-      console.log('Speech to Text Result ==> sttResult')
-      console.log(result)
+      console.log('Speech to Text Result ==> sttResult');
+      console.log(result);
 
       if (result.indexOf('quick') > 1 || result.indexOf('detail') > 1) {
-        this.props.showPatientModal()
+        this.props.showPatientModal();
       } else {
-        console.log('gotToPhi')
-        this.props.getPhiDetail('Sameena Sabungar')
+        console.log('gotToPhi');
+        this.props.getPhiDetail('Sameena Sabungar');
       }
-    })
-  }
+    });
+  };
 
   _sttStart() {
     this.setState({ sttStart: true }, () => {
-      console.log('Speech to text Started ==> sttStart')
-    })
+      console.log('Speech to text Started ==> sttStart');
+    });
   }
 
   render() {
@@ -90,7 +90,7 @@ class VoicePlayerDemo extends Component {
       <button className="chatbot-btn default" onClick={this._ttsStart}>
         <ChatBotSvg />
       </button>
-    )
+    );
 
     if (this.state.ttsPlay) {
       button = (
@@ -98,7 +98,7 @@ class VoicePlayerDemo extends Component {
           <LoadingSvg />
           <span>Speaking...</span>
         </button>
-      )
+      );
     }
 
     if (this.state.sttStart) {
@@ -107,7 +107,7 @@ class VoicePlayerDemo extends Component {
           <LoadingSvg />
           <span>Listening...</span>
         </button>
-      )
+      );
     }
 
     return (
@@ -134,7 +134,7 @@ class VoicePlayerDemo extends Component {
             stop={this.state.sttStop}
           />}
       </div>
-    )
+    );
   }
 }
 
@@ -143,6 +143,6 @@ VoicePlayerDemo.propTypes = {
   getPatient: PropTypes.func,
   getPhiDetail: PropTypes.func,
   showPatientModal: PropTypes.func,
-}
+};
 
-export default VoicePlayerDemo
+export default VoicePlayerDemo;

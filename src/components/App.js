@@ -1,22 +1,22 @@
-require('./ServiceWorker')
-import React from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-import { Route, Redirect, withRouter } from 'react-router-dom'
-import Async from 'react-code-splitting'
+require('./ServiceWorker');
+import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { Route, Redirect, withRouter } from 'react-router-dom';
+import Async from 'react-code-splitting';
 
-import Login from './Auth/Login'
-import ChatBot from './Chatbot'
-import PatientModal from './PatientModal'
+import Login from './Auth/Login';
+import ChatBot from './Chatbot';
+import PatientModal from './PatientModal';
 
 import {
   getPatient,
   getPhiDetail,
   showPatientModal,
   hidePatientModal,
-} from '../actions/BlockChain'
+} from '../actions/BlockChain';
 
-const Home = () => <Async load={import('./Home')} />
+const Home = () => <Async load={import('./Home')} />;
 
 const App = ({
   user,
@@ -41,7 +41,7 @@ const App = ({
     {user.token && user.showPatientModal
       ? <PatientModal user={user} hidePatientModal={hidePatientModal} />
       : null}
-  </div>
+  </div>;
 
 App.propTypes = {
   user: PropTypes.shape({}).isRequired,
@@ -49,9 +49,9 @@ App.propTypes = {
   getPhiDetail: PropTypes.func.isRequired,
   showPatientModal: PropTypes.func.isRequired,
   hidePatientModal: PropTypes.func.isRequired,
-}
+};
 
-const mapStateToProps = state => ({ user: state.user })
+const mapStateToProps = state => ({ user: state.user });
 export default withRouter(
   connect(mapStateToProps, {
     getPatient,
@@ -59,4 +59,4 @@ export default withRouter(
     showPatientModal,
     hidePatientModal,
   })(App),
-)
+);

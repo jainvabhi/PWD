@@ -1,4 +1,4 @@
-import { actionTypes as types } from '../constants'
+import { actionTypes as types } from '../constants';
 
 const initialState = {
   token: '',
@@ -9,7 +9,7 @@ const initialState = {
   loading: false,
   showPatientModal: false,
   phi: '',
-}
+};
 
 const user = (state = initialState, action) => {
   switch (action.type) {
@@ -25,16 +25,16 @@ const user = (state = initialState, action) => {
         patient: '',
         showPatientModal: false,
         phi: '',
-      }
+      };
     case types.LOGIN_REQUEST:
-      return { ...state, loading: false }
+      return { ...state, loading: false };
     case types.LOGIN_SUCCESS:
-      return { ...state, token: action.data.token }
+      return { ...state, token: action.data.token };
     case types.LOGIN_FAILURE:
-      return { ...state, token: '' }
+      return { ...state, token: '' };
 
     case types.WEBCAM_REQUEST:
-      return { ...state, loading: true }
+      return { ...state, loading: true };
 
     case types.WEBCAM_ERROR:
       return {
@@ -44,7 +44,7 @@ const user = (state = initialState, action) => {
         token: '',
         showCam: false,
         loading: false,
-      }
+      };
 
     case types.WEBCAM_SUCCESS:
       return {
@@ -53,26 +53,26 @@ const user = (state = initialState, action) => {
         webcamError: '',
         token: action.data.token,
         loading: false,
-      }
+      };
 
     case types.SHOW_WEBCAM:
-      return { ...state, showCam: true, loading: false }
+      return { ...state, showCam: true, loading: false };
 
     case types.HIDE_WEBCAM:
-      return { ...state, showCam: false, loading: false }
+      return { ...state, showCam: false, loading: false };
 
     case types.GET_PATIENT:
-      return { ...state, patient: action.data }
+      return { ...state, patient: action.data };
     case types.GET_PHI:
-      return { ...state, phi: action.data, showPatientModal: false }
+      return { ...state, phi: action.data, showPatientModal: false };
 
     case types.SHOW_PATIENT_MODAL:
-      return { ...state, showPatientModal: true }
+      return { ...state, showPatientModal: true };
     case types.HIDE_PATIENT_MODAL:
-      return { ...state, showPatientModal: false }
+      return { ...state, showPatientModal: false };
     default:
-      return state
+      return state;
   }
-}
+};
 
-export default user
+export default user;

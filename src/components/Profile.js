@@ -1,32 +1,32 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Webcam from '../actions/webcam'
-import BioGraphy from './BioGraphy'
-import Timeline from './Timeline'
-import { connect } from 'react-redux'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Webcam from '../actions/webcam';
+import BioGraphy from './BioGraphy';
+import Timeline from './Timeline';
+import { connect } from 'react-redux';
 
-import { showBio, showTimeline, logout } from '../actions'
+import { showBio, showTimeline, logout } from '../actions';
 
 const Profile = ({ user, logout, timeline, showBio, showTimeline }) => {
-  Webcam.reset()
+  Webcam.reset();
   const userImage = {
     backgroundImage: `url(${user.image})`,
-  }
+  };
   const showBios = () => {
-    showBio()
-  }
+    showBio();
+  };
   const showTimelines = () => {
-    console.log('as')
-    showTimeline()
-  }
-  let tabContent = <Timeline />
-  let activeTimelineClass = 'not-active'
-  let activeBioClass = 'active'
+    console.log('as');
+    showTimeline();
+  };
+  let tabContent = <Timeline />;
+  let activeTimelineClass = 'not-active';
+  let activeBioClass = 'active';
 
   if (timeline.timeline) {
-    tabContent = <BioGraphy />
-    activeTimelineClass = 'active'
-    activeBioClass = 'not-active'
+    tabContent = <BioGraphy />;
+    activeTimelineClass = 'active';
+    activeBioClass = 'not-active';
   }
 
   return (
@@ -154,8 +154,8 @@ const Profile = ({ user, logout, timeline, showBio, showTimeline }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 Profile.propTypes = {
   user: PropTypes.shape({}).isRequired,
@@ -163,11 +163,11 @@ Profile.propTypes = {
   showTimeline: PropTypes.func.isRequired,
   showBio: PropTypes.func.isRequired,
   logout: PropTypes.func.isRequired,
-}
+};
 const mapStateToProps = state => ({
   user: state.user.webcam,
   timeline: state.timeline,
-})
+});
 export default connect(mapStateToProps, { showTimeline, showBio, logout })(
   Profile,
-)
+);

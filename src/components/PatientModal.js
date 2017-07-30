@@ -1,5 +1,5 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const PatientModal = ({ user, hidePatientModal }) => {
   return (
@@ -46,12 +46,12 @@ const PatientModal = ({ user, hidePatientModal }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 PatientModal.propTypes = {
   user: PropTypes.shape({}).isRequired,
   hidePatientModal: PropTypes.func,
-}
+};
 
-export default PatientModal
+export default PatientModal;
