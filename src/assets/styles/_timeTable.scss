@@ -1,0 +1,388 @@
+.ui-tabs-panel {
+    padding: 0 !important;
+    clear: both;
+}
+  table.tt_timetable {
+    width: 100%;
+    font-size: 11px;
+    color: #666;
+    margin-top: 30px;
+    border: none;
+    font-family: arial;
+    letter-spacing: normal;
+    font-size: 11px;
+    line-height: normal;
+    border-collapse: separate !important;
+    border-spacing: 2px !important;
+    background: #FFF !important;
+}
+  table.tt_timetable, table.tt_timetable tbody tr, table.tt_timetable thead tr {
+    border: 1px solid #e5e5e5;
+}
+  table.tt_timetable {
+    font-weight: 700;
+    color: grey;
+    font-size: 16px;
+}
+  table.tt_timetable {
+    border-collapse: separate!important;
+    border-spacing: 0!important;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,.13);
+    -moz-box-shadow: 0 0 10px 0 rgba(0,0,0,.13);
+    box-shadow: 0 0 10px 0 rgba(0,0,0,.13);
+}
+  table.tt_timetable * {
+    box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+}
+  table.tt_timetable tbody {
+    -webkit-border-radius: 0 0 10px 10px;
+    -moz-border-radius: 0 0 10px 10px;
+    border-radius: 0 0 10px 10px;
+}
+  .tt_timetable tr {
+    background-color: #FFF !important;
+}
+  table.tt_timetable, table.tt_timetable tbody tr, table.tt_timetable thead tr {
+    border: 1px solid #e5e5e5;
+}
+  .tt_timetable .row_gray {
+    background-color: #F0F0F0 !important;
+}
+  .tt_timetable td {
+    width: 12.5%;
+    vertical-align: top;
+    height: 31px;
+    border: none;
+    padding: 0;
+    height: 100px;
+}
+  table.tt_timetable .row_gray {
+    background-color: transparent!important;
+}
+  .tt_timetable th, .tt_timetable td {
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    line-height: normal;
+    color: #34495E;
+    text-transform: none;
+    border: none !important;
+}
+  .tt_timetable th, .tt_timetable td.tt_hours_column {
+    text-align: center;
+    vertical-align: middle;
+}
+  .tt_timetable th {
+    width: 12.5%;
+    padding: 10px 15px 12px;
+    letter-spacing: normal;
+}
+  table.tt_timetable td, table.tt_timetable th {
+    border-right: 1px solid #e5e5e5!important;
+    border-bottom: 1px solid #e5e5e5!important;
+}
+  table.tt_timetable th {
+    font-weight: 500;
+    color: #0e0e0e;
+    height: 70px;
+    font-size: 15px!important;
+    font-family: Poppins,sans-serif;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+  .tt_timetable th, .tt_timetable td, .tt_timetable .event .before_hour_text, .tt_timetable .event .after_hour_text, .tt_timetable .event .event_header {
+    font-size: 14px !important;
+}
+  .tt_timetable th {
+    font-size: 15px!important;
+}
+
+table.tt_timetable tr td:last-child, table.tt_timetable tr th:last-child {
+    border-right: 0!important;
+}
+  table.tt_timetable tbody tr:nth-child(odd) {
+    background-color: #fafafa!important;
+}
+  table.tt_timetable tbody tr:nth-child(even) {
+    background-color: #fff!important;
+}
+  table.tt_timetable tbody tr:last-child {
+    border-radius: 0 0 10px 10px;
+    background-color:  transparent !important;
+}
+  table.tt_timetable td.tt_hours_column {
+    font-weight: 500;
+    color: #acacac!important;
+    text-transform: uppercase;
+    font-size: 12px!important;
+}
+  table.tt_timetable td {
+    font-weight: 400;
+    color: grey!important;
+    font-size: 16px;
+}
+  .tt_timetable .event {
+    background-color: #00A27C;
+    color: #FFF;
+    line-height: 140%;
+    text-align: center;
+    padding: 0 !important;
+    vertical-align: top;
+}
+  table.tt_timetable .event, table.tt_timetable .event .event_container.tt_tooltip:hover, table.tt_timetable .event:hover {
+    background-color: transparent;
+}
+  table.tt_timetable .event {
+    color: grey;
+}
+
+// .tt_tooltip:hover{
+//   .tt_tooltip_text{
+//     opacity: 1; 
+//     visibility: visible
+//   }
+// }
+.tt_tooltip{
+  position: relative;
+}
+table.tt_timetable .tt_tooltip:hover .tt_tooltip_text {
+    visibility: visible;
+    opacity: 1;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    transform: scale(1);
+}
+  
+  .tt_timetable .event_container {
+    padding: 7px 10px;
+}
+  table.tt_timetable .event_container {
+    padding: 29px 10px;
+}
+
+.tt_timetable .event a, .tt_timetable .event .event_header {
+    display: block;
+    color: #FFF !important;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 2px;
+    text-decoration: none;
+    outline: none;
+    transition: none !important;
+    border: none;
+}
+  table.tt_timetable .event .after_hour_text, table.tt_timetable .event .event_header, table.tt_timetable .event a {
+    color: #4f6dcd!important;
+}
+  table.tt_timetable .event .event_header {
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+  table.tt_timetable .event .before_hour_text {
+    font-size: 11px;
+    font-weight: 500;
+    color: #acacac;
+}
+  table.tt_timetable td.tt_hours_column {
+    font-weight: 500;
+    color: #acacac!important;
+    text-transform: uppercase;
+    font-size: 12px!important;
+}
+
+.tt_tooltip .tt_tooltip_text {
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    z-index: 1000;
+    left: -19px;
+    bottom: 100%;
+    line-height: 1;
+    text-align: center;
+    -webkit-transition-duration: 0.25s;
+    -moz-transition-duration: 0.25s;
+    -o-transition-duration: 0.25s;
+    -ms-transition-duration: 0.25s;
+    transition-duration: 0.25s;
+    -webkit-transition-timing-function: cubic-bezier(0.35,0,0.35,1);
+    -moz-transition-timing-function: cubic-bezier(0.35,0,0.35,1);
+    -o-transition-timing-function: cubic-bezier(0.35,0,0.35,1);
+    -ms-transition-timing-function: cubic-bezier(0.35,0,0.35,1);
+    transition-timing-function: cubic-bezier(0.35,0,0.35,1);
+    -webkit-transition-property: opacity, visibility;
+    -moz-transition-property: opacity, visibility;
+    -o-transition-property: opacity, visibility;
+    -ms-transition-property: opacity, visibility;
+    transition-property: opacity, visibility;
+}
+  table.tt_timetable .tt_tooltip .tt_tooltip_text {
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transform-origin: 50% 200%;
+    -moz-transform-origin: 50% 200%;
+    transform-origin: 50% 200%;
+    -webkit-transform: scale(.8);
+    -moz-transform: scale(.8);
+    transform: scale(.8);
+    -webkit-transition: transform .3s cubic-bezier(.18,.6,.01,1.28),opacity .2s,visibility .2s;
+    -moz-transition: transform .3s cubic-bezier(.18,.6,.01,1.28),opacity .2s,visibility .2s;
+    transition: transform .3s cubic-bezier(.18,.6,.01,1.28),opacity .2s,visibility .2s;
+}
+  .tt_tooltip .tt_tooltip_content {
+    background: #1F736A;
+    color: #FFF;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    padding: 7px 10px 10px;
+    line-height: 150%;
+    font-size: 11px;
+    text-align: left;
+}
+  table.tt_timetable .tt_tooltip_content {
+    color: #fff!important;
+    background: #4e6dcc;
+    text-align: center;
+    border-radius: 5px;
+    margin: 0 10px;
+    padding: 15px;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: none;
+    height: 100%;
+    line-height: 18px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+  .tt_tooltip .tt_tooltip_arrow {
+    content: '';
+    position: relative;
+    border-color: #1F736A transparent;
+    border-style: solid;
+    border-width: 5px 5px 0;
+    bottom: -6px;
+    left: 0;
+    display: inline;
+}
+  table.tt_timetable .tt_tooltip .tt_tooltip_arrow {
+    border-color: #4e6dcc transparent;
+    position: absolute;
+    left: 60px;
+    border-width: 16px 16px 0;
+    bottom: -10px;
+}
+  .tt_timetable .event a, .tt_timetable .event .event_header {
+    display: block;
+    color: #FFF !important;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 2px;
+    text-decoration: none;
+    outline: none;
+    transition: none !important;
+    border: none;
+}
+  table.tt_timetable .tt_tooltip_content a {
+    color: #fff!important;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    display: none;
+}
+
+.tt_timetable.small {
+    display: none;
+    font-size: 13px;
+}
+  .tt_responsive .tt_timetable.small .box_header {
+    color: grey!important;
+    font-size: 20px!important;
+    text-align: left;
+    margin-bottom: 20px;
+}
+  .tt_tabs_navigation, .tt_items_list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+  .tt_items_list {
+    padding: 0 !important;
+    margin: 0 !important;
+    list-style: none !important;
+}
+  .page_margin_top {
+    margin-top: 30px;
+}
+  .tt_items_list li {
+    padding: 12px 0 !important;
+    margin: 0 !important;
+    list-style: none !important;
+    border-bottom: 1px solid #E0E0E0;
+    background-position: left center;
+    background-repeat: no-repeat;
+    line-height: 120%;
+}
+  .tt_items_list li:first-child {
+    padding-top: 0;
+}
+  .tt_responsive .tt_timetable.small .tt_items_list li {
+    border-color: #e5e5e5;
+    padding: 15px 0!important;
+}
+  .tt_timetable .event_container {
+    padding: 7px 10px;
+}
+  .tt_items_list .event_container {
+    float: left;
+}
+  .tt_responsive .tt_timetable.small .tt_items_list .event_container {
+    text-align: left;
+}
+  .tt_items_list a, .tt_items_list span {
+    outline: none;
+}
+  .tt_items_list li a {
+    border: none;
+}
+  .tt_items_list.thin a, .tt_items_list.thin span {
+    font-weight: normal;
+}
+  .tt_responsive .tt_timetable.small .tt_items_list .value, .tt_responsive .tt_timetable.small .tt_items_list a {
+    font-weight: 700;
+    font-size: 16px;
+    color: grey!important;
+}
+  .timetable_clearfix:after {
+    font-size: 0px;
+    content: ".";
+    display: block;
+    height: 0px;
+    visibility: hidden;
+    clear: both;
+}
+
+
+  .tt_items_list .value {
+    float: right;
+    color: #34495E;
+}
+  .tt_responsive .tt_timetable.small .tt_items_list .value, .tt_responsive .tt_timetable.small .tt_items_list a {
+    font-weight: 700;
+    font-size: 16px;
+    color: grey!important;
+}
+
+@media screen and (max-width: 767px) {
+  .tt_timetable.small{ 
+    display: block !important;
+  }
+  table.tt_timetable{
+    display: none !important;
+  }
+}

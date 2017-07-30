@@ -1,0 +1,23 @@
+{
+  "name": "Doctor Portal",
+  "short_name": "Doctor Portal PWA",
+  "description": "Progressive Web Apps for Resources I like",
+  "lang": "en",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#5cc7b2",
+  "background_color": "#FFFFFF",
+  "icons": [
+    {
+      "src": "512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "author": {
+    "name": "Abhishek Jain",
+    "website": "https://dotajain.com",
+    "github": "https://github.com/jainvabhi",
+    "source-repo": "https://github.com/jainvabhi/pwa-portal"
+  }
+}
