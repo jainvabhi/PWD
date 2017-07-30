@@ -554,6 +554,21 @@
   background-color: #5cc7b2;
 }
 
+.patientModal {
+   .list-group-item {
+     span {
+       &:first-child {
+         color: $blue;
+         font-family: $font-medium;
+         width: 200px;
+       }
+       +span {
+         margin-left: 10px
+       }
+     }
+   }
+}
+
 @media (max-width: 767px) {
   .medical-portal-header {
     height: auto;
@@ -719,6 +734,10 @@
   }
   .dashboard .svgLogo {
     width: 40px;
+  }
+  .patientModal .list-group-item span{
+    width: auto;
+    display: block
   }
 }
 
