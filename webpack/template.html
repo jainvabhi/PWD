@@ -6,10 +6,10 @@
     <link rel="manifest" href="manifest.json">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="React">
-    <meta name="apple-mobile-web-app-title" content="React">
-    <meta name="theme-color" content="#0080FF">
-    <meta name="msapplication-navbutton-color" content="#0080FF">
+    <meta name="application-name" content="Patient One">
+    <meta name="apple-mobile-web-app-title" content="Patient One">
+    <meta name="theme-color" content="#5cc7b2">
+    <meta name="msapplication-navbutton-color" content="#5cc7b2">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="msapplication-starturl" content="/">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,5 +22,50 @@
     </noscript>
     <react />
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyD8cVGW-e4zCLa98ivZmBp42VpFP53_dvg",
+        authDomain: "natural-broker-164116.firebaseapp.com",
+        databaseURL: "https://natural-broker-164116.firebaseio.com",
+        projectId: "natural-broker-164116",
+        storageBucket: "natural-broker-164116.appspot.com",
+        messagingSenderId: "492763510386"
+      };
+      firebase.initializeApp(config);
+
+      const messaging=firebase.messaging();
+    
+      messaging.requestPermission()
+      .then(function(){
+        console.log('Have permission');
+        return messaging.getToken();
+      })
+      .then(function(token){
+        console.log(token);
+        var time= Math.floor(Date.now() / 1000);
+      
+        // firebase.database().ref().set({
+        //  time:token,
+        // });
+
+        firebase.database().ref().child('token').push({texttoken:token});
+        
+        
+      })
+      .catch(function(err){
+        console.log('Error Occured');
+      })
+      messaging.onMessage(function(payload){
+        
+        console.log("OnMessage:", payload);
+        var notification = new Notification(payload.notification.title, {
+          icon: 'https://patient-portal-e3b69.firebaseapp.com/512.png',
+          body: payload.notification.body ,
+        });
+
+      });
+      </script>
   </body>
 </html>

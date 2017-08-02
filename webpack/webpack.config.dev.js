@@ -1,7 +1,6 @@
 const { resolve } = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const OfflinePlugin = require('offline-plugin');
 
 module.exports = {
   resolve: {
@@ -56,12 +55,19 @@ module.exports = {
         test: /\.(eot|ttf|woff|woff2|otf)(\?v=\d+\.\d+\.\d+)?$/,
         use: {
           loader: 'file-loader',
+          options: {
+            name: '[path][name].[hash:8].[ext]',
+          },
         },
       },
       {
         test: /\.(png|jpe?g|gif|ico|svg)$/,
         use: {
           loader: 'url-loader',
+          options: {
+            limit: 15000,
+            name: '[name].[ext]',
+          },
         },
       },
     ],
@@ -70,14 +76,8 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
     new HtmlWebpackPlugin({
-      title: 'Healthcare | Syntel Hackathon POC',
+      title: 'Patient Portal || Syntel',
       template: '../webpack/template.html',
-    }),
-    new OfflinePlugin({
-      ServiceWorker: {
-        navigateFallbackURL: '/',
-      },
-      AppCache: false,
     }),
   ],
   performance: { hints: false },

@@ -1,0 +1,65 @@
+[
+  {
+    "name":  "Joe, Burns",
+    "city": "ICU1, City",
+    "case": "Sepsis",
+    "address": "89Y F LOS 4D",
+    "gender": "F"
+  },
+  {
+    "name":  "Bamberger, Hellen",
+    "city": "507, City",
+    "case": "Atrial Fibrillation",
+    "address": "75Y F LOS 1D",
+    "gender": "F"
+  },
+  {
+    "name":  "Blazer, Roy",
+    "city": "401, City",
+    "case": "Sepsis",
+    "address": "85Y M LOS 4D",
+    "gender": "M"
+  },
+  {
+    "name":  "Bonnet, Lola",
+    "city": "209, City",
+    "case": "Asthma exacerbation",
+    "address": "15Y F LOS 4D",
+    "gender": "F"
+  },
+  {
+    "name":  "Brooks,, Angela",
+    "city": "ER, City",
+    "case": "Abdominal Pain",
+    "address": "19Y F LOS 7.5H",
+    "gender": "F"
+  },
+  {
+    "name":  "Chang, Eric",
+    "city": "Cling, City",
+    "case": "Post-OP",
+    "address": "50Y M 01/14/17",
+    "gender": "M"
+  },
+  {
+    "name":  "Collins, John",
+    "city": "Cling, City",
+    "case": "Follow up",
+    "address": "54Y M 01/12/17",
+    "gender": "M"
+  },
+  {
+    "name":  "Darr, Molly",
+    "city": "501, City",
+    "case": "Acute Mi",
+    "address": "75Y F LOS 4D",
+    "gender": "F"
+  },
+  {
+    "name":  "Greene, Christinia",
+    "city": "Cling, City",
+    "case": "New Patient",
+    "address": "75Y F 1/14/17",
+    "gender": "F"
+  }
+]

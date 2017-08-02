@@ -83,8 +83,9 @@
   }
 
   .auth-btn{
-    background-color: #fff;
-    border: 1px dashed #6d6d6d;
+    background-color: $blue;
+    border: 1px dashed $white;
+    color: $white;
     display: flex;
     align-items: center;
     width: 250px;
@@ -93,13 +94,22 @@
     flex-grow: 1;
     text-align: left;
     height: 80px;
+    font-family: $font-medium;
+    &:hover {
+      background-color: $white;
+      color: $blue;
+    }
+    i {
+      font-size: 40px;
+    }
   }
 
   .auth-title {
     font-size: 18px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    color: $white;
     span {
-      color: $blue;
+      font-family: $font-medium;
     }
   }
 
@@ -239,11 +249,6 @@
   border-color: $blue;
 }
 
-.login-container {
-  padding: 50px 0;
-  background: #f9f9f9;
-  border-bottom: 3px solid #5cc7b2;
-}
 
 .custom-modal {
   display: block;
@@ -343,8 +348,33 @@
     position: relative;
     background-color: #fff;
     padding: 1em;
-    text-align: center;
+    text-align: left;
     border-bottom: 2px solid $blue;
+    .m-t-0 {
+      font-family: $font-medium;
+      color: $blue;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+}
+
+.card-content{
+  .list-group {
+    .list-group-item  {
+      border-radius: 0;
+      border: 0;
+      border-top: 1px solid $blue;
+      h5 {
+        font-size: 16px;
+        font-family: $font-medium;
+      }
+    }
+  }
+  .patient-title {
+    padding: 10px;
+    font-size: 16px;
+    font-family: $font-bold;
+  }
 }
   .card-content-languages h4 {
     line-height: 1.5em;
@@ -586,9 +616,7 @@
       }
     }
   }
-  .login-container{
-    padding: 20px 0;
-  }
+  
   .auth-title {
     font-size: 14px;
     margin-bottom: 10px;
@@ -655,15 +683,12 @@
   .blog-item .blog-content h4 {
     font-size: 18px;
   }
-  .auth-btn img {
-    width: 77%;
-  }
   #my_camera {
     width: 100% !important;
-    height: auto !important;
+    height: 283px !important;
     video {
       width: 100% !important;
-      height: auto !important;
+      height: 283px !important;
     }
   }
   .modal-header {

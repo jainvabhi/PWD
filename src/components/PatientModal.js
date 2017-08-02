@@ -1,7 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+
+import { hidePatientModal } from '../actions/BlockChain';
 
 const PatientModal = ({ user, hidePatientModal }) => {
+  console.log(user);
   return (
     <div className="modal fade show custom-modal patientModal">
       <div className="modal-dialog" role="document">
@@ -24,16 +28,16 @@ const PatientModal = ({ user, hidePatientModal }) => {
                 <span>Name:</span> <span>{user.patient.name}</span>
               </li>
               <li className="list-group-item">
-                <span>Blood Group:</span> <span>{user.patient.bloodGroup}</span>
+                <span>Gender:</span> <span>Female</span>
               </li>
               <li className="list-group-item">
-                <span>Email:</span> <span>testemail@testemail.com</span>
+                <span>Age:</span> <span>35Y</span>
               </li>
               <li className="list-group-item">
-                <span>Phone Number:</span> <span>921-212-1212</span>
+                <span>Race:</span> <span>R</span>
               </li>
               <li className="list-group-item">
-                <span>Date of Birth:</span> <span>July 20, 1984</span>
+                <span>SSN:</span> <span>999-999-9999</span>
               </li>
               <li className="list-group-item">
                 <span>Appointment Time:</span> <span>10:30 AM</span>
@@ -53,5 +57,7 @@ PatientModal.propTypes = {
   user: PropTypes.shape({}).isRequired,
   hidePatientModal: PropTypes.func,
 };
-
-export default PatientModal;
+const mapStateToProps = state => ({
+  user: state.user,
+});
+export default connect(mapStateToProps, { hidePatientModal })(PatientModal);

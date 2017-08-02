@@ -21,14 +21,14 @@ export const getPatient = patientName => dispatch => {
     const abi = safeCompiled['<stdin>:PatientSafe'].info.abiDefinition;
     const contract = web3.eth.contract(abi);
 
-    let contractId = '0x8ae251f8612fb366cbcb831a0c8cd2229f2e3d1a';
+    let contractId = '0xf68277e8855d4bb3187ac6aa52744c7a82ac05bf';
 
-    if (patientName === 'Abhishek Jain') {
-      contractId = '0x8ae251f8612fb366cbcb831a0c8cd2229f2e3d1a';
-    } else if (patientName === 'Sourabh Lodha') {
-      contractId = '0x037ce2d837f441a4e139570bed1977eefde49179';
-    } else if (patientName === 'Sameena Sabungar') {
-      contractId = '0xfc57b2081c1912df4a62bb5914d601a81185af1d';
+    if (patientName === 'Kane williamson') {
+      contractId = '0x60e5df6d576471f907bdaa7b7289bc1167bd291b';
+    } else if (patientName === 'Tim southee') {
+      contractId = '0x3bff50db8e8074f67ef3d803659a79d072d7f25d';
+    } else if (patientName === 'Samy Haydon') {
+      contractId = '0xf68277e8855d4bb3187ac6aa52744c7a82ac05bf';
     }
 
     const deployedSafe = contract.at(contractId);
@@ -42,6 +42,7 @@ export const getPatient = patientName => dispatch => {
           bloodGroup: CryptoJS.AES
             .decrypt(returnValues[4], '123')
             .toString(CryptoJS.enc.Utf8),
+          patientList: patientList,
         };
         dispatch({ type: types.GET_PATIENT, data });
       }),
@@ -67,14 +68,14 @@ export const getPhiDetail = patientName => dispatch => {
     const abi = safeCompiled['<stdin>:PHISafe'].info.abiDefinition;
     const contract = web3.eth.contract(abi);
 
-    let contractId = '0xfcb4b04b00f3ed01d3b1d9ebdfd86400c61259dd';
+    let contractId = '0xae8bd9910ed0e7290143cef86ebe57c7ab1785a9';
 
-    if (patientName === 'Abhishek Jain') {
-      contractId = '0x8ae251f8612fb366cbcb831a0c8cd2229f2e3d1a';
-    } else if (patientName === 'Sourabh Lodha') {
-      contractId = '0x037ce2d837f441a4e139570bed1977eefde49179';
-    } else if (patientName === 'Sameena Sabungar') {
-      contractId = '0xfcb4b04b00f3ed01d3b1d9ebdfd86400c61259dd';
+    if (patientName === 'Tim southee') {
+      contractId = '0x8e946899e383a21a3dd831a4b48b9937200d1704';
+    } else if (patientName === 'Kane williamson') {
+      contractId = '0x86214eaa18a4514e6c1b61c97b1400fdb71f9632';
+    } else if (patientName === 'Samy Haydon') {
+      contractId = '0xae8bd9910ed0e7290143cef86ebe57c7ab1785a9';
     }
 
     const deployedSafe = contract.at(contractId);
@@ -110,3 +111,76 @@ export const showPatientModal = () => dispatch => {
 export const hidePatientModal = () => dispatch => {
   dispatch({ type: types.HIDE_PATIENT_MODAL });
 };
+
+export const hospitalChatBot = () => dispatch => {
+  dispatch({ type: types.IS_HOSPITAL });
+};
+export const hospitalChatBotClose = () => dispatch => {
+  dispatch({ type: types.IS_HOSPITAL_CLOSE });
+};
+
+const patientList = [
+  {
+    name: 'Joe, Burns',
+    city: 'ICU1, City',
+    case: 'Sepsis',
+    address: '89Y F LOS 4D',
+    gender: 'F',
+  },
+  {
+    name: 'Bamberger, Hellen',
+    city: '507, City',
+    case: 'Atrial Fibrillation',
+    address: '75Y F LOS 1D',
+    gender: 'F',
+  },
+  {
+    name: 'Blazer, Roy',
+    city: '401, City',
+    case: 'Sepsis',
+    address: '85Y M LOS 4D',
+    gender: 'M',
+  },
+  {
+    name: 'Bonnet, Lola',
+    city: '209, City',
+    case: 'Asthma exacerbation',
+    address: '15Y F LOS 4D',
+    gender: 'F',
+  },
+  {
+    name: 'Brooks,, Angela',
+    city: 'ER, City',
+    case: 'Abdominal Pain',
+    address: '19Y F LOS 7.5H',
+    gender: 'F',
+  },
+  {
+    name: 'Chang, Eric',
+    city: 'Cling, City',
+    case: 'Post-OP',
+    address: '50Y M 01/14/17',
+    gender: 'M',
+  },
+  {
+    name: 'Collins, John',
+    city: 'Cling, City',
+    case: 'Follow up',
+    address: '54Y M 01/12/17',
+    gender: 'M',
+  },
+  {
+    name: 'Darr, Molly',
+    city: '501, City',
+    case: 'Acute Mi',
+    address: '75Y F LOS 4D',
+    gender: 'F',
+  },
+  {
+    name: 'Greene, Christinia',
+    city: 'Cling, City',
+    case: 'New Patient',
+    address: '75Y F 1/14/17',
+    gender: 'F',
+  },
+];

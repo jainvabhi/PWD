@@ -2,19 +2,25 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class VoicePlayer extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
 
     if ('speechSynthesis' in window) {
       this.speech = this.createSpeech();
     } else {
-      console.warn('The current browser does not support the speechSynthesis API.');
+      console.warn(
+        'The current browser does not support the speechSynthesis API.',
+      );
     }
-    
+
     this.state = {
       started: false,
       playing: false,
     };
+  }
+
+  componentWillMount() {
+    this.speech = this.createSpeech();
   }
 
   createSpeech = () => {
@@ -30,6 +36,12 @@ class VoicePlayer extends Component {
 
     let speech = new SpeechSynthesisUtterance();
 
+    // let voices = speechSynthesis.getVoices();
+
+    // speech.voice = voices.filter((voice) => voice.name == 'Google UK English Female')[0];
+
+    // console.log(speechSynthesis.getVoices());
+
     speech.text = options.text;
     speech.volume = options.volume;
     speech.rate = options.rate;
@@ -37,29 +49,29 @@ class VoicePlayer extends Component {
     speech.lang = options.lang;
 
     return speech;
-  }
+  };
 
   speak = () => {
     window.speechSynthesis.speak(this.speech);
     this.setState({ started: true, playing: true });
-  }
+  };
 
   cancel = () => {
     window.speechSynthesis.cancel();
     this.setState({ started: false, playing: false });
-  }
+  };
 
   pause = () => {
     window.speechSynthesis.pause();
     this.setState({ playing: false });
-  }
+  };
 
   resume = () => {
     window.speechSynthesis.resume();
     this.setState({ playing: true });
-  }
+  };
 
-  componentWillReceiveProps ({ pause }) {
+  componentWillReceiveProps({ pause }) {
     if (pause && this.state.playing && this.state.started) {
       return this.pause();
     }
@@ -69,11 +81,11 @@ class VoicePlayer extends Component {
     }
   }
 
-  shouldComponentUpdate () {
+  shouldComponentUpdate() {
     return false;
   }
 
-  componentDidMount () {
+  componentDidMount() {
     const events = [
       { name: 'start', action: this.props.onStart },
       { name: 'error', action: this.props.onError },
@@ -95,14 +107,12 @@ class VoicePlayer extends Component {
     }
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     this.cancel();
   }
 
-  render () {
-    return (
-      <div>&nbsp;</div>
-    );
+  render() {
+    return <div>&nbsp;</div>;
   }
 }
 
@@ -116,4 +126,3 @@ VoicePlayer.propTypes = {
 };
 
 export default VoicePlayer;
-

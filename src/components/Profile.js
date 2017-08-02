@@ -1,16 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Async from 'react-code-splitting';
+
 import Webcam from '../actions/webcam';
-import BioGraphy from './BioGraphy';
-import Timeline from './Timeline';
 import { connect } from 'react-redux';
+import BrandSvg from './BrandSvg';
+import patientImage from '../assets/images/patientimage.jpg';
 
-import { showBio, showTimeline, logout } from '../actions';
+const BioGraphy = () => <Async load={import('./BioGraphy')} />;
+const Timeline = () => <Async load={import('./Timeline')} />;
+import { showBio, showTimeline, backToDashboard } from '../actions';
 
-const Profile = ({ user, logout, timeline, showBio, showTimeline }) => {
+const Profile = ({
+  user,
+  backToDashboard,
+  timeline,
+  showBio,
+  showTimeline,
+}) => {
   Webcam.reset();
   const userImage = {
-    backgroundImage: `url(${user.image})`,
+    backgroundImage: `url(${patientImage})`,
   };
   const showBios = () => {
     showBio();
@@ -30,42 +40,16 @@ const Profile = ({ user, logout, timeline, showBio, showTimeline }) => {
   }
 
   return (
-    <div className="medical-portal dashboard">
-      <div className="medical-portal-header">
-        <div className="medical-logo">
-          <svg
-            version="1.1"
-            id="Layer_1"
-            xmlns="http://www.w3.org/2000/svg"
-            x="0px"
-            y="0px"
-            viewBox="0 0 512 512"
-            xmlSpace="preserve"
-            className="svgLogo"
-          >
-            <g>
-              <path
-                className="svgWhite"
-                d="M256,0c-69.139,0-125.388,56.249-125.388,125.388S186.861,250.775,256,250.775s125.388-56.249,125.388-125.388
-                    S325.139,0,256,0z M256,219.429c-51.854,0-94.041-42.187-94.041-94.041S204.146,31.347,256,31.347s94.041,42.187,94.041,94.041
-                    C350.041,177.242,307.854,219.429,256,219.429z"
-              />
-            </g>
-            <g>
-              <path
-                className="svgWhite"
-                d="M256,282.122c-118.112,0-214.204,96.092-214.204,214.204V512h428.408v-15.673
-                    C470.204,378.214,374.112,282.122,256,282.122z M73.808,480.653C81.785,387.136,160.452,313.469,256,313.469
-                    s174.215,73.666,182.192,167.184H73.808z"
-              />
-            </g>
-          </svg>
-          <h1>
-            Welcome {user.name}
-          </h1>
-        </div>
-        <button onClick={logout} className="logout">
-          Logout
+    <div className="landing-page dashboard">
+      <section className="header">
+        <h1 className="brand-logo">
+          <span className="brand-icon">
+            <BrandSvg />
+          </span>
+          <span className="brand-text">Patient One</span>
+        </h1>
+        <button onClick={backToDashboard} className="logout">
+          Back
           <svg
             version="1.1"
             id="Capa_1"
@@ -82,59 +66,56 @@ const Profile = ({ user, logout, timeline, showBio, showTimeline }) => {
             </g>
           </svg>
         </button>
-      </div>
+      </section>
       <div className="content">
         <div className="row">
-          <div className="col-sm-12 col-md-4">
+          <div className="col-sm-12 col-md-3">
             <div className="card card-dashboard">
               <div className="card-header userHeader" style={userImage} />
               <div className="card-content">
                 <div className="card-content-member">
                   <h4 className="m-t-0">
-                    {user.name}
+                    {user.patient.name}
                   </h4>
-                  <p className="m-0">
-                    <i className="fa fa-map-marker" />
-                    {user.detail}
-                  </p>
+                  <div className="medical-service">
+                    <span className="serviceName">Medical Service:</span>{' '}
+                    <span>OP-Emergency Service</span>
+                  </div>
                 </div>
-                <div className="card-content-languages">
-                  <div className="card-content-languages-group">
-                    <div>
-                      <h4>Occupation</h4>
-                    </div>
-                    <div>
-                      <ul>
-                        <li>Front End Developer</li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div className="card-content-languages-group">
-                    <div>
-                      <h4>Contacts</h4>
-                    </div>
-                    <div>
-                      <ul>
-                        <li>abhishek_jain@syntelinc.com</li>
-                        <li>+123 456 789</li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div className="card-content-languages-group">
-                    <div>
-                      <h4>Address</h4>
-                    </div>
-                    <div>
-                      <ul>
-                        <li>85 street pimple saudagar pune</li>
-                      </ul>
-                    </div>
-                  </div>
+                <div className="patient-detail">
+                  <ul>
+                    <li>
+                      <span>Gender:</span>
+                      <span>Female</span>
+                    </li>
+                    <li>
+                      <span>Age:</span>
+                      <span>35 Y</span>
+                    </li>
+                    <li>
+                      <span>Race:</span>
+                      <span>R</span>
+                    </li>
+                    <li>
+                      <span>SSN:</span>
+                      <span>999-999-9999</span>
+                    </li>
+                    <li>
+                      <span>MRN:</span>
+                      <span>8200011</span>
+                    </li>
+                    <li>
+                      <span>Address:</span>
+                      <span>
+                        1601, Willow Lawn Drive <br />Richmond, VA - 23230
+                      </span>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
           </div>
-          <div className="col-sm-12 col-md-8">
+          <div className="col-sm-12 col-md-9">
             <ul className="nav nav-tabs tab-nav-right" role="tablist">
               <li role="presentation">
                 <button className={activeBioClass} onClick={showBios}>
@@ -143,7 +124,7 @@ const Profile = ({ user, logout, timeline, showBio, showTimeline }) => {
               </li>
               <li role="presentation" className="">
                 <button className={activeTimelineClass} onClick={showTimelines}>
-                  Biography
+                  Medical History
                 </button>
               </li>
             </ul>
@@ -162,12 +143,14 @@ Profile.propTypes = {
   timeline: PropTypes.shape({}).isRequired,
   showTimeline: PropTypes.func.isRequired,
   showBio: PropTypes.func.isRequired,
-  logout: PropTypes.func.isRequired,
+  backToDashboard: PropTypes.func.isRequired,
 };
 const mapStateToProps = state => ({
-  user: state.user.webcam,
+  user: state.user,
   timeline: state.timeline,
 });
-export default connect(mapStateToProps, { showTimeline, showBio, logout })(
-  Profile,
-);
+export default connect(mapStateToProps, {
+  showTimeline,
+  showBio,
+  backToDashboard,
+})(Profile);

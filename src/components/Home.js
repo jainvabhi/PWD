@@ -2,30 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-
-import Dashboard from './Dashboard';
-import Profile from './Profile';
-import { logout } from '../actions';
+import Async from 'react-code-splitting';
 import Webcam from '../actions/webcam';
-// import { Message, Blue } from './Styled';
 
-const Home = ({ user, logout }) => {
-  const onLogout = () => {
-    logout();
-  };
+const Profile = () => <Async load={import('./Profile')} />;
+const DashBoard = () => <Async load={import('./DashBoard')} />;
+
+const Home = ({ user }) => {
   Webcam.reset();
   let component;
   if (user.token && user.phi) {
     component = <Profile />;
   } else {
-    component = <Dashboard user={user} logout={onLogout} />;
+    component = <DashBoard />;
   }
-  return user.token ? component : <Redirect to="/login" />;
+  return user.token ? component : <Redirect to="/" />;
 };
 
 Home.propTypes = {
   user: PropTypes.shape({}).isRequired,
-  logout: PropTypes.func.isRequired,
 };
 const mapStateToProps = state => ({ user: state.user });
-export default connect(mapStateToProps, { logout })(Home);
+export default connect(mapStateToProps)(Home);

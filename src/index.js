@@ -10,15 +10,16 @@ import App from './components/App';
 
 import './assets/styles/app.scss';
 
-// if (process.env.NODE_ENV === 'production') 
-Offline.install();
+if (process.env.NODE_ENV === 'production') {
+  require('./sw');
+  Offline.install();
+}
 
-export const Root = () => (
+export const Root = () =>
   <Provider store={store}>
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </Provider>
-);
+  </Provider>;
 
 if (!module.hot) render(<Root />, document.querySelector('react'));

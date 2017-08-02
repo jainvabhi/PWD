@@ -9,6 +9,7 @@ const initialState = {
   loading: false,
   showPatientModal: false,
   phi: '',
+  hospital: false,
 };
 
 const user = (state = initialState, action) => {
@@ -25,6 +26,7 @@ const user = (state = initialState, action) => {
         patient: '',
         showPatientModal: false,
         phi: '',
+        hospital: false,
       };
     case types.LOGIN_REQUEST:
       return { ...state, loading: false };
@@ -63,6 +65,7 @@ const user = (state = initialState, action) => {
 
     case types.GET_PATIENT:
       return { ...state, patient: action.data };
+
     case types.GET_PHI:
       return { ...state, phi: action.data, showPatientModal: false };
 
@@ -70,6 +73,16 @@ const user = (state = initialState, action) => {
       return { ...state, showPatientModal: true };
     case types.HIDE_PATIENT_MODAL:
       return { ...state, showPatientModal: false };
+
+    case types.SHOW_DASHBOARD:
+      return { ...state, phi: '' };
+
+    case types.IS_HOSPITAL:
+      return { ...state, hospital: true };
+
+    case types.IS_HOSPITAL_CLOSE:
+      return { ...state, hospital: false, showPatientModal: false, phi: '' };
+
     default:
       return state;
   }

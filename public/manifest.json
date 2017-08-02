@@ -1,0 +1,23 @@
+{
+  "name": "Patient One",
+  "short_name": "Patient One",
+  "description": "Patient One Progressive Web App",
+  "lang": "en",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#5cc7b2",
+  "background_color": "#FFFFFF",
+  "icons": [
+    {
+      "src": "512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "author": {
+    "name": "Abhishek Jain",
+    "website": "https://dotajain.com",
+    "github": "https://github.com/dotajain",
+    "source-repo": "https://github.com/dotajain/pwa-portal"
+  }
+}
