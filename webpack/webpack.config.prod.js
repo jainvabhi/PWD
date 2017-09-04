@@ -73,7 +73,8 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      title: 'Patient Portal | Syntel',
+      title:
+        'Atom || Automated Transformation Optimization & Modernization Platform',
       template: 'webpack/template.html',
     }),
     new PreloadWebpackPlugin({

@@ -1,11 +1,11 @@
 {
-  "name": "Patient One",
-  "short_name": "Patient One",
-  "description": "Patient One Progressive Web App",
+  "name": "Atom",
+  "short_name": "Atom",
+  "description": "Automated Transformation Optimization & Modernization Platform",
   "lang": "en",
   "start_url": "/",
   "display": "standalone",
-  "theme_color": "#5cc7b2",
+  "theme_color": "#1096eb",
   "background_color": "#FFFFFF",
   "icons": [
     {

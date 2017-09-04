@@ -23,7 +23,7 @@ module.exports = {
   devtool: 'inline-source-map',
   devServer: {
     hot: true,
-    port: 9000,
+    port: 8082,
     contentBase: resolve(__dirname, '../assets'),
     publicPath: '/',
     historyApiFallback: true,
@@ -76,7 +76,8 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
     new HtmlWebpackPlugin({
-      title: 'Patient Portal || Syntel',
+      title:
+        'Atom || Automated Transformation Optimization & Modernization Platform',
       template: '../webpack/template.html',
     }),
   ],

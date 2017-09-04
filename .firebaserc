@@ -1,6 +1,5 @@
 {
   "projects": {
-    "default": "patient-portal-e3b69",
-    "staging": "patient-portal-e3b69"
+    "default": "atom-87f41"
   }
 }

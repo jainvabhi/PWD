@@ -3,8 +3,9 @@
 }
 body {
   line-height: 1.2;
-  background-color: $white;
-  color: $gray;
+  background-color: #f0f0f0;
+  color: #000;
+  letter-spacing: 0.03em;
 }
 body, button, a, input {
   font-family: $font-regular;
@@ -39,10 +40,6 @@ button, a, .btn, input, .form-control {
 
 strong{
   font-family: $font-bold;
-}
-
-section{
-  padding: 50px 0;
 }
 
 pre {
